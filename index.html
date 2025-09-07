@@ -14,27 +14,39 @@
             border: 2px solid black;
             width: 20%;
         }
-        h1, h3{
+        h1, h2, h3{
             font-family: 'Montserrat', sans-serif; color: white;
         }
         a{
             font-family: 'Montserrat', sans-serif; color: white;
-            text-decoration: none;
+            text-decoration: underline;
         }
-        h2{
+        .b{
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-color: blue;
             border: 1px solid black;
             border-radius: 4px;
-            text-align: center;
             width: 110px;
-            color: white;
+            text-align: center;
             font-family: 'Montserrat', sans-serif;
+            font-size: 1.5em;
             letter-spacing: 1px;
             transition: background-color 0.3s, border-color 0.3s;
+            box-shadow: 3px 3px 12px black;
+            margin: 20px;
         }
-        h2:hover{
+        .b:hover{
             background-color: black;
             border: 1px solid blue;
+        }
+        .b a {
+            text-decoration: none;
+            color: white;
+            width: 100%;
+            height: 100%;
+            padding: 5px;
         }
         #piccolo{
             background-color: blue;
@@ -66,16 +78,16 @@
 </head>
 <body bgcolor="ff5500">
     <center>
-        <h1>SITO DELLA 2C1</h1>
+        <h1>SITO DELLA 3C1</h1>
         <h3>by <a href="https://dj2828.github.io/sito/" target="_blank" style="text-decoration: underline;">Dj 2828</a></h3>
+        <h3><a href="https://github.com/dj2828/3C1">GitHub</a></h3>
 
-        <br><br>
+        <br>
         
         <hr>
-        <a href="html/index.html"><h2>HTML</h2></a>
-        <hr>
-        <a href="https://github.com/dj2828/2C1/tree/master/cpp" target="_blank"><h2>C++</h2></a>
-        <a href="https://github.com/dj2828/2C1/tree/master/cpp/laboratorio" target="_blank"><p id="piccolo">Lab</p></a>
+        <h1>1-2C1</h1>
+        <div class="b"><a href="1C1/html/">HTML</a></div>
+        <div class="b"><a href="https://github.com/dj2828/2C1/tree/main/cpp" target="_blank">C++</a></div>
         <hr>
 
     </center>

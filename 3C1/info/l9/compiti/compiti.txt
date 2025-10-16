@@ -1,0 +1,6 @@
+1)
+scrivi un proggramma che scrivi la figura di un triangolo con base 9?
+
+2)
+cifra -> algoritmo di fibonacci
+rispettare le regole della legge di dio

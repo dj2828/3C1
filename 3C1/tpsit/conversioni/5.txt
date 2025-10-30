@@ -1,0 +1,7 @@
+convertire:
+433 (10) --> all
+d10 --> (8)
+110011 + 100111 =
+611 (8) --> (2)
+
+per tutti la prova

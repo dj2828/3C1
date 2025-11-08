@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="tpsit"/>
+        <attribute name="authors" value="dj28p"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-11-08 01:42:16 "/>
+        <attribute name="created" value="ZGoyOHA7UElDQ0lPWlpPOzIwMjUtMTEtMDc7IjAzOjMyOjM1ICI7MjMxMQ=="/>
+        <attribute name="edited" value="ZGoyOHA7UElDQ0lPWlpPOzIwMjUtMTEtMDg7IjAxOjQyOjE2ICI7NTsyNDIy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="num1, num2, r" type="Integer" array="False" size=""/>
+            <output expression="&quot;Inserisci il primo numero&quot;" newline="True"/>
+            <input variable="num1"/>
+            <output expression="&quot;Inserisci il secondo numero&quot;" newline="True"/>
+            <input variable="num2"/>
+            <assign variable="num1" expression="conv(num1)"/>
+            <assign variable="num2" expression="conv(num2)"/>
+            <assign variable="r" expression="num1 - num2"/>
+            <output expression="&quot;Sottrazione: &quot;&amp;convv(r)" newline="True"/>
+        </body>
+    </function>
+    <function name="conv" type="Integer" variable="r">
+        <parameters>
+            <parameter name="num" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="r, cifra, a, n" type="Integer" array="False" size=""/>
+            <assign variable="a" expression="num"/>
+            <assign variable="n" expression="1"/>
+            <while expression="a&gt;0">
+                <assign variable="a" expression="a/10"/>
+                <assign variable="n" expression="n + 1"/>
+            </while>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="r" expression="0"/>
+            <for variable="i" start="0" end="n" direction="inc" step="1">
+                <assign variable="cifra" expression="num % 10"/>
+                <assign variable="r" expression="r + (cifra *( 2^i ))"/>
+                <assign variable="num" expression="num/10"/>
+            </for>
+        </body>
+    </function>
+    <function name="convv" type="String" variable="rs">
+        <parameters>
+            <parameter name="num" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="rs" type="String" array="False" size=""/>
+            <declare name="temp, n, i" type="Integer" array="False" size=""/>
+            <assign variable="temp" expression="num"/>
+            <assign variable="n" expression="0"/>
+            <while expression="temp!=0">
+                <assign variable="n" expression="n+1"/>
+                <assign variable="temp" expression="temp/2"/>
+            </while>
+            <declare name="r" type="Integer" array="True" size="n"/>
+            <assign variable="i" expression="0"/>
+            <while expression="num!=0">
+                <assign variable="r[i]" expression="num%2"/>
+                <assign variable="num" expression="num/2"/>
+                <assign variable="i" expression="i+1"/>
+            </while>
+            <assign variable="rs" expression="&quot;&quot;"/>
+            <for variable="i" start="n-1" end="0" direction="dec" step="1">
+                <assign variable="rs" expression="rs&amp;ToString(r[i])"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

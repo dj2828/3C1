@@ -4,22 +4,46 @@
         <attribute name="name" value="tpsit"/>
         <attribute name="authors" value="dj28p"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2025-11-08 01:42:16 "/>
+        <attribute name="saved" value="2025-11-14 11:23:24 "/>
         <attribute name="created" value="ZGoyOHA7UElDQ0lPWlpPOzIwMjUtMTEtMDc7IjAzOjMyOjM1ICI7MjMxMQ=="/>
         <attribute name="edited" value="ZGoyOHA7UElDQ0lPWlpPOzIwMjUtMTEtMDg7IjAxOjQyOjE2ICI7NTsyNDIy"/>
+        <attribute name="edited" value="bWF0dGlhLmZhdXN0aTtJVElTLU9GRi0yOTE4OzIwMjUtMTEtMTQ7IjExOjIzOjI0ICI7MTszNDY0"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
-            <declare name="num1, num2, r" type="Integer" array="False" size=""/>
-            <output expression="&quot;Inserisci il primo numero&quot;" newline="True"/>
-            <input variable="num1"/>
-            <output expression="&quot;Inserisci il secondo numero&quot;" newline="True"/>
-            <input variable="num2"/>
-            <assign variable="num1" expression="conv(num1)"/>
-            <assign variable="num2" expression="conv(num2)"/>
-            <assign variable="r" expression="num1 - num2"/>
-            <output expression="&quot;Sottrazione: &quot;&amp;convv(r)" newline="True"/>
+            <declare name="num1, num2, r, s" type="Integer" array="False" size=""/>
+            <output expression="&quot;1 Sottrazione, 2 Moltiplicazione&quot;" newline="True"/>
+            <input variable="s"/>
+            <if expression="s==1">
+                <then>
+                    <output expression="&quot;Inserisci il primo numero&quot;" newline="True"/>
+                    <input variable="num1"/>
+                    <output expression="&quot;Inserisci il secondo numero&quot;" newline="True"/>
+                    <input variable="num2"/>
+                    <assign variable="num1" expression="conv(num1)"/>
+                    <assign variable="num2" expression="conv(num2)"/>
+                    <assign variable="r" expression="num1 - num2"/>
+                    <output expression="&quot;Sottrazione: &quot;&amp;convv(r)" newline="True"/>
+                </then>
+                <else>
+                    <if expression="s==2">
+                        <then>
+                            <output expression="&quot;Inserisci il primo numero&quot;" newline="True"/>
+                            <input variable="num1"/>
+                            <output expression="&quot;Inserisci il secondo numero&quot;" newline="True"/>
+                            <input variable="num2"/>
+                            <assign variable="num1" expression="conv(num1)"/>
+                            <assign variable="num2" expression="conv(num2)"/>
+                            <assign variable="r" expression="num1 * num2"/>
+                            <output expression="&quot;Moltiplicazione: &quot;&amp;convv(r)" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Numero inserito non valido&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
         </body>
     </function>
     <function name="conv" type="Integer" variable="r">

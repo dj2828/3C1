@@ -1,0 +1,6 @@
+solo matrici quadrate
+
+A	B
+C	D
+
+A*D-B*C

@@ -1,0 +1,5 @@
+dato un vettore di cognomi con associato un vettore che contiene gli stipendi
+max
+min
+media
+divisibile per 23

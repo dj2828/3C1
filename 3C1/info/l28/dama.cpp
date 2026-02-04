@@ -33,17 +33,36 @@ void genera_mat(){
 }
 
 int controllo(int r, int c, int d, char g, bool damone=false){
-    if(!damone) r++;
-    c = (d==1) ? c-- : c++;
+    char nemico = (g='B') ? 'N' : 'B';
+    (g=='B') ? r-- : r++;
+    (d==1) ? c-- : c++;
 
     if(M[r][c]=='*') return 0;
-    if(M[r][c]!=g){
-        r++;
-        c = (d==1) ? c-- : c++;
-
+    if(M[r][c]==nemico){
+        (g=='B') ? r-- : r++;
+        (d==1) ? c-- : c++;
+        return (M[r][c]=='*') ? 1 : 2;
     }
-
+s
     return 0;
+}
+
+void sposta(int r, int c, int d, char g, int cosa, bool damone=false){
+    if(cosa==0){
+        M[r][c] = '*';
+        (g=='B') ? r-- : r++;
+        (d==1) ? c-- : c++;
+        M[r][c] = g;
+    }
+    if(cosa==1){
+        M[r][c] = '*';
+        (g=='B') ? r-- : r++;
+        (d==1) ? c-- : c++;
+        M[r][c] = '*';
+        (g=='B') ? r-- : r++;
+        (d==1) ? c-- : c++;
+        M[r][c] = g;
+    }
 }
 
 void turno(char g){
@@ -57,14 +76,18 @@ void turno(char g){
     }while(M[r][c] != g);
     cout << "Dove vuoi muovere?\n1-SX, 2-DX: ";
     cin >> d;
-    controllo(r, c, d, g);
+    sposta(r, c, d, g, controllo(r, c, d, g));
 }
 
 int main(){
+    char p = 'N';
     genera_mat();
-    disp();
 
-    turno('B');
+    while(true){
+        //system("cls");
+        disp();
+        turno((p == 'B') ? 'N' : 'B');
+    }
 
     system("pause");
     return 0;

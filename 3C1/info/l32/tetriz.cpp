@@ -1,18 +1,23 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <conio.h>
 using namespace std;
 
 const int r=10, c=5;
 
 char Mat[r][c];
 
-class blocco_base{
-public:
+struct blocco_base{
     int riga, colonna;
-    blocco(int r=r/2, int c=0){
+    void pos(int r, int c){
         riga = r;
         colonna = c;
+    }
+    void scendi(int direzione=0){
+        riga++;
+        if(direzione==1) colonna++;
+        if(direzione==2) colonna--;
     }
 
 };
@@ -37,18 +42,48 @@ void genMat(){
 }
 
 void genBlocco(){
-    blocco_base blocco = new blocco_base();
+    blocco = blocco_base();
 }
 
 void sleep(int x){
-    std::this_thread::sleep_for(std::chrono::milliseconds(x*1000));
+    for (int i = 0; i < x*1000; i += 10) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+
+        if (_kbhit()) {
+            char c = _getch();
+            std::cout << "Premuto: " << c << "\n";
+        }
+    }
+}
+int input(){
+    for (int i = 0; i < x*1000; i += 10) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+
+        if (_kbhit()) {
+            int ch = _getch();
+
+            if (ch == 224) {
+                ch = _getch();
+
+                switch (ch) {
+                    case 72: std::cout << "Freccia SU\n"; break;
+                    case 80: std::cout << "Freccia GIU\n"; break;
+                    case 75: std::cout << "Freccia SINISTRA\n"; break;
+                    case 77: std::cout << "Freccia DESTRA\n"; break;
+                }
+            }
+        }
+    }
+
+    return 0;
 }
 
 int main(){
     genMat();
     while(true){
-        cout << blocco.
+        cout << blocco.riga << " " << blocco.colonna << endl;
         sleep(1);
+        blocco.scendi(input());
     }
 
     system("pause");

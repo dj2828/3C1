@@ -14,13 +14,19 @@ struct blocco_base{
         riga = r;
         colonna = c;
     }
-    int posso_spostarmi(int x){
+    bool posso_spostarmi(int x){
+        if(x==1){ // destra
+            if(Mat[riga][colonna+1] != '-' && colonna < c-1) return true;
+        }
+        else if(x==2){ // sinistra
+            if(Mat[riga][colonna-1] != '-' && colonna > 0) return true;
+        }
         
-        return 1;
+        return false;
     }
     void sposta(int direzione=0){
-        if(direzione==1 && colonna<c-1) colonna++; // destra
-        if(direzione==2 && colonna>0) colonna--; // sinistra
+        if(direzione==1 && posso_spostarmi(1)) colonna++; // destra
+        if(direzione==2 && posso_spostarmi(2)) colonna--; // sinistra
     }
     void scendi(){
         if(riga<=r-1 && Mat[riga][colonna] != '-') riga++;

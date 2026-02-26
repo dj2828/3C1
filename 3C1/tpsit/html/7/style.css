@@ -26,10 +26,18 @@ a:hover{
     border-radius: 20px;
     box-shadow: 0px 0px 10px #000;
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
 }
 .numero{
-    width: 20px;
-    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 40px;
+    height: 40px;
     border-radius: 50px;
     background-color: white;
 }

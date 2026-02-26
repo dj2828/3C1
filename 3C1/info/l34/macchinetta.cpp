@@ -1,15 +1,21 @@
 #include <iostream>
+#include <iomanip> // Necessario per setw e left
 using namespace std;
 
 int main(){
     const int PIENO_MAX = 8;
     const int PIENO_MIN = 3;
+    float saldo = 1;
 
     string Nomi[4][3] = {{"Acqua naturale","Acqua frizzante","Acqua naturale"},
                         {"Acqua frizzante","Acqua naturale","Acqua naturale"},
                         {"Coca-Cola","Coca-Cola","Fanta"},
                         {"Kinder pinguino","Biscotto generico","Ringo cioccolata"}};
     int Quantita[4][3];
+    float Prezzi[4][3] = {{0.55, 0.55, 0.55},
+                         {0.55, 0.55, 0.55},
+                         {1.25, 1.25, 1.05},
+                         {1.5, 1.2, 1.23}};
 
     bool ricarica = false;
     int scelta;
@@ -23,21 +29,35 @@ int main(){
     do{
         int riga, colonna;
         // display macchinetta
-        for(int i=-1; i<4; i++){
-            for(int j=-1; j<3; j++){
-                if(i==-1){
-                    if(j!=-1) cout << j << "\t\t";
-                    else cout << ' ' << "\t";
+        const int width = 25;
+        for (int i = -1; i < 4; i++) {
+            for (int j = -1; j < 3; j++) {
+                if (i == -1) {
+                    // Riga delle intestazioni (0, 1, 2)
+                    if (j == -1) cout << setw(5) << " ";
+                    else cout << left << setw(width) << j;
                 }
-                else if(j==-1) cout << i << "\t";
-                else cout << Nomi[i][j] << "\t";
+                else if (j == -1) {
+                    // Colonna degli indici (0, 1, 2, 3)
+                    cout << left << setw(5) << i;
+                }
+                else {
+                    // Prodotto e Prezzo
+                    string cella = Nomi[i][j] + " (" + to_string(Prezzi[i][j]).substr(0,4) + ")";
+                    cout << left << setw(width) << cella;
+                }
             }
             cout << endl;
+
+            // Linea separatrice opzionale per pulizia visiva
+            if (i == -1) cout << string(width * 3 + 5, '-') << endl;
         }
+        cout << "Saldo: " << saldo << endl;
         // menu
         cout << endl << "1) Compra" << endl;
-        cout << "2) Esci" << endl;
-        if(ricarica) cout << "3) Ricarica" << endl;
+        cout << "2) Ricarica saldo" << endl;
+        cout << "3) Esci" << endl;
+        if(ricarica) cout << "4) Ricarica" << endl;
         cin >> scelta;
 
         if(scelta==1){ //compra
@@ -46,20 +66,31 @@ int main(){
             cin >> riga;
             cout << "Colonna: ";
             cin >> colonna;
+            system("cls");
 
-            if(Quantita[riga][colonna] < 1){
+            float soldi_rimanenti = saldo - Prezzi[riga][colonna];
+            if(Quantita[riga][colonna] < 1)
                 cout << "La quantità non basta per essere erogata" << endl;
-            }
+            else if(soldi_rimanenti < 0)
+                cout << "SALDO INSUFFICIENTE: Mancanti " << soldi_rimanenti*-1 << endl;
             else{
                 cout << "EROGAZIONE " << Nomi[riga][colonna] << " IN CORSO..." << endl;
                 Quantita[riga][colonna]--;
+                saldo = soldi_rimanenti;
                 if(Quantita[riga][colonna] <= PIENO_MIN){
                     cout << "ATTENZIONE! " << Nomi[riga][colonna] << " ARRIVATO A " << Quantita[riga][colonna] << endl;
                     ricarica = true;
                 }
             }
         }
-        else if(scelta==3){ //ricarica
+        else if(scelta==2){ //ricarica soldi
+            float soldi;
+            cout << "Quanti soldi vuoi ricaricare? ";
+            cin >> soldi;
+
+            saldo += soldi;
+        }
+        else if(scelta==4){ //ricarica
             int k=1;
             system("cls");
             for(int i=0; i<4; i++){
@@ -75,7 +106,7 @@ int main(){
             }
             ricarica = false;
         }
-    }while(scelta!=2);
+    }while(scelta!=3);
 
 
     system("pause");

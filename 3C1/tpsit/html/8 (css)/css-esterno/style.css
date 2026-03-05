@@ -1,0 +1,17 @@
+*{
+    font-family: Arial;
+    font-weight: bold;
+    text-align: center;
+}
+
+body{
+    background-color: #ff5500;
+}
+h1{
+    color: blue;
+    text-shadow: 3px 3px 5px #000000a0;
+}
+p{
+    font-family: 'Segoe UI';
+    font-size: 20px;
+}

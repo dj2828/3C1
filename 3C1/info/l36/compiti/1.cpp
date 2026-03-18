@@ -39,24 +39,24 @@ int totale(int v[7]) {
 }
 
 int maxGiorno(int v[7]) {
-    int max = v[0];
+    int nmax = v[0];
 
     for(int i = 1; i < 7; i++) {
-        if(v[i] > max) {
-            max = v[i];
+        if(v[i] > nmax) {
+            nmax = v[i];
         }
     }
 
-    return max;
+    return nmax;
 }
 
 int giornoMax(int v[7]) {
-    int max = v[0];
+    int nmax = v[0];
     int giorno = 0;
 
     for(int i = 1; i < 7; i++) {
-        if(v[i] > max) {
-            max = v[i];
+        if(v[i] > nmax) {
+            nmax = v[i];
             giorno = i;
         }
     }

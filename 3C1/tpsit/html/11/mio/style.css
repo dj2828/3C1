@@ -1,0 +1,19 @@
+body {
+    background-color: #444444;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(223, 223, 223);
+}
+ol li {
+    background-color: #2e2e2e;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+
+ul {
+    color: #fff;
+}
+
+dl dt {
+    color: #fff;
+}

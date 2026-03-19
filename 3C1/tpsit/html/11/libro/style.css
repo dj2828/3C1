@@ -1,0 +1,17 @@
+body {
+    background-color: #ccffe6;
+    font-family: 'Segoe UI', Tahoma, Geneva;
+    color: mediumblue;
+}
+ol li {
+    background-color: #ffcccc;
+}
+
+ul {
+    list-style-image: "🔴";
+    color: #e60000;
+}
+
+dl dt {
+    color: #e60000;
+}

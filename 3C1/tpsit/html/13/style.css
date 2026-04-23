@@ -1,0 +1,56 @@
+:root{
+    --text-color: #d7d7d7
+}
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+body{
+    background-color: #3c3c3c;
+    margin: 0;
+}
+#titoli{
+    background-image: linear-gradient(#da000080, #3c3c3c 67%);
+    text-align: center;
+    margin: 0px;
+    width: 100%;
+    color: var(--text-color);
+}
+
+#menu{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: #da000080;
+    justify-content: space-evenly;
+}
+#menu a.ora{
+    background-color: #aa2828;
+}
+#menu a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  color: var(--text-color);
+  text-decoration: none;
+  width: 100%; 
+  background-color: #0000;
+  transition: all 0.3s;
+}
+#menu a:hover{
+    background-color: #d70202;
+}
+
+.scarpe{
+    display: flex;
+    background-color: #9898987c;
+    color: var(--text-color);
+    padding: 20px;
+    margin: 20px;
+    gap: 50px;
+    border-radius: 20px;
+    box-shadow: #0000007d 3px 5px 10px;
+    justify-content: center;
+}

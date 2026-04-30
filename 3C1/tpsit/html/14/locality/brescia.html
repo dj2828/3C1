@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title>Meteo Brescia</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1>Meteo Brescia</h1>
+
+    <ul>
+        <li><a href="../">Home</a></li>
+    </ul>
+
+    <h2>Meteo attuale:</h2>
+    <p id="current-meteo"></p>
+    <div id="future-meteo"></div>
+
+    <script>
+        async function fetchMeteo(posto){
+            const response = await fetch("https://wttr.in/"+posto+"?format=j2");
+            const response_line = await fetch("https://wttr.in/"+posto+"?format='%c+%t+%m'");
+            const data = await response.json();
+            const data_line = await response_line.text();
+            return {
+                meteo: data,
+                linea: data_line
+            };
+        }
+
+        async function formatMeteo(){
+            data = await fetchMeteo("brescia");
+            console.log(data);
+            const current = data["meteo"]["current_condition"][0];
+            const temp = current.temp_C;
+            const temp_per = current.FeelsLikeC;
+            const text = current["lang_it"][0].value;
+
+            let container_attuale = document.getElementById("current-meteo");
+            // ${data["linea"].querySelector("div")}
+            container_attuale.innerHTML = `
+            ${text} <br>
+            Temp: ${temp}° <br>
+            Temp percepita: ${temp_per}°
+            `
+
+            let container = document.getElementById("future-meteo");
+            for (let i = 0; i < data["meteo"]["weather"].length; i++) {
+                const altri = data["meteo"]["weather"][i];
+                
+                container.innerHTML += `
+                <h4>${altri.date}</h4>
+                <div style="margin-left:var(--margin-sinistra);">
+                    Temp: ${altri.avgtempC}°
+                </div>
+                `
+                console.log(altri.date);
+            }
+
+        }
+
+        
+        formatMeteo();
+
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>Resistenze</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            color: #e1e1e1;
+            text-align: center;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #202020;
+        }
+        table{
+            min-width: 300px;
+            border-collapse: collapse;
+            border: ;
+        }
+        td, th{
+            border: 3px solid #3e3e3e;
+            padding: 5px;
+        }
+        tr.chiari td{
+            color: #202020;
+        }
+        p{
+            max-width: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resistenze</h1>
+    <p>Il <b>resistore</b> è il componente fisico ed elettrico che oppone una resistenza elettrica al passaggio di corrente mentre la <b>resistenza elettrica</b> è una grandezza scalare (valore 100Ω) che misura la tendenza di un corpo ad opporsi al passaggio di corrente.</p>
+    <img src="https://cdn.creativefabrica.com/2022/01/28/Resistor-Graphics-24247574-1.png" width="200px" style="margin: -50px;">
+    <p>Per le prime 2 si scrivono i valori numerici, per la 3° si moltiplica x10<sup>n</sup>, mentre l'ultima è la tolleranza (oro: 5%, argento: 20%). Questa è da 1kΩ ±50Ω</p>
+    <table border="2">
+        <tr>
+            <th>Colore</th>
+            <th>Valore</th>
+        </tr>
+        <tr style="background-color: black;">
+            <td>Nero</td>
+            <td>0</td>
+        </tr>
+        <tr style="background-color: rgb(152, 53, 0);">
+            <td>Marrone</td>
+            <td>1</td>
+        </tr>
+        <tr style="background-color: red;">
+            <td>Rosso</td>
+            <td>2</td>
+        </tr>
+        <tr style="background-color: #ff6200;">
+            <td>Arancio</td>
+            <td>3</td>
+        </tr>
+        <tr style="background-color: yellow;" class="chiari">
+            <td>Giallo</td>
+            <td>4</td>
+        </tr>
+        <tr style="background-color: lime;" class="chiari">
+            <td>Verde</td>
+            <td>5</td>
+        </tr>
+        <tr style="background-color: blue;">
+            <td>Blu</td>
+            <td>6</td>
+        </tr>
+        <tr style="background-color: darkviolet;">
+            <td>Viola</td>
+            <td>7</td>
+        </tr>
+        <tr style="background-color: grey;">
+            <td>Grigio</td>
+            <td>8</td>
+        </tr>
+        <tr style="background-color: white;" class="chiari">
+            <td>Bianco</td>
+            <td>9</td>
+        </tr>
+    </table>
+</body>
+</html>

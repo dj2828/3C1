@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>PLACEHOLDER_TITOLO</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div id="centro">
+        <h1>PLACEHOLDER_TITOLO</h1>
+        <div id="data-div" style="    display: flex;
+    flex-direction: column;
+    align-items: center;"></div>
+    </div>
+
+    <script>
+        const data = {{ data|tojson }};
+        console.log(data);
+
+        let data_div = document.getElementById("data-div");
+
+        data.forEach(element => {
+            data_div.insertAdjacentHTML('beforeend', `
+            <h3>${element["1"]}</h3>
+            <h3>${element["2"]}</h3>
+            <br>
+            `);
+        });
+    </script>
+</body>
+</html>

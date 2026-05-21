@@ -1,0 +1,35 @@
+:root{
+	--nav-color: #888;
+	--p-hover-color: #999;
+	--nav-text-color: #fff;
+	--text-color: white;
+}
+body{
+	font-family: arial;
+	background-color: #555;
+	color: var(--text-color);
+}
+nav {
+	display: flex;
+	background-color: var(--nav-color);
+	height: 30px
+	allign-content: center;
+	justify-content: space-around;
+	padding: 0 30px;
+	border-radius: 20px;
+}
+nav a{
+	cursor: pointer;
+	padding: 15px;
+	margin: 0;
+	background-color: var(--nav-color);
+	text-decoration: none;
+	color: var(--nav-text-color);
+}
+nav a:hover {
+	background-color: var(--p-hover-color);
+}
+
+.numero{
+	background-color: #888; padding: 5px; border-radius: 5px;
+}
